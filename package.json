@@ -1,0 +1,27 @@
+{
+  "name": "grunt-filestats",
+  "description": "Gives you statistical information about your files by type",
+  "version": "0.0.1",
+  "homepage": "https://github.com/standup75/grunt-filestats",
+  "author": {
+    "name": "Stanislas Duprey",
+    "url": "http://standupweb.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/standup75/grunt-filestats.git"
+  },
+  "bugs": {
+    "url": "https://github.com/standup75/grunt-filestats/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/standup75/grunt-filestats/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}
