@@ -25,7 +25,8 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     filestats: {
       options: {
-        details: true
+        details: true,
+        extensionCanContainDots: false
       },
       javascript: {
         src: ['test/**/*.js']
@@ -38,6 +39,12 @@ module.exports = function(grunt) {
           details: false
         },
         src: ['test/**']
+      },
+      synjs: {
+        src: ['../primetime/synacor-application-fe-primetime-assets/assets/components/**/*.js'] 
+      },
+      synjava: {
+        src: ['../primetime_play/synacor-application-fe-primetime/primetime-app/app/**/*.java'] 
       }
     },
 

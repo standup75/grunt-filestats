@@ -45,6 +45,7 @@ This option is passed to `grunt.file.copy` as an advanced way to control which f
 filestats: {
   options: {
     details: true,
+    extensionCanContainDots: false
   },
   javascript: {
     src: ['src/**/*.js']
@@ -54,6 +55,11 @@ filestats: {
   }
 }
 ```
+
+### Options
+
+`details`: Set to true of you want the information about number of lines and the longest line (default to `true`)
+`extensionCanContainDots`: Set to true if you want to make difference between .js and .hbs.js (default to `false`)
 
 ### Demo
 

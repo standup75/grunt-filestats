@@ -16,7 +16,8 @@ module.exports = function(grunt) {
     var dirCount = 0;
     var fileCount = 0;
     var options = this.options({
-      details: true
+      details: true,
+      extensionCanContainDots: false
     });
     var files = this.filesSrc;
     var fileTypes = {};
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
       if (grunt.file.isDir(filepath)) {
         dirCount++;
       } else {
-        var matches = filepath.match(/\.[^\/]*$/);
+        var matches = filepath.match(options.extensionCanContainDots ? /\.[^\/]*$/ : /\.[^\/\.]*$/);
         var extension = matches ? matches[0] : 'Unknown file type'
         var fileType = fileTypes[extension];
         if (!fileType) {
