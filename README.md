@@ -54,3 +54,7 @@ filestats: {
   }
 }
 ```
+
+### Demo
+
+Just try `grunt filestats` in the root directory of this plugin
