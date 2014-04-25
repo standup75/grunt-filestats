@@ -34,15 +34,26 @@ module.exports = function(grunt) {
         if (!fileType) {
           fileType = fileTypes[extension] = {
             count: 0,
-            lineCount: 0
+            lineCount: 0,
+            longestLineLength: 0
           };
         }
         fileCount++;
         fileType.count++;
         if (options.details) {
           var lines = grunt.file.read(filepath).split('\n');
+          var lineNumber = 0;
+          var longestLineLength = Math.max.apply(this, lines.map(function(lines){
+            lineNumber++;
+            return lines.length;
+          }));
           fileType.lineCount += lines.length;
-          fileType.longestLine = Math.max.apply(this, lines.map(function(lines){ return lines.length; }));
+          var max = Math.max(fileType.longestLineLength, longestLineLength);
+          if (max === longestLineLength) {
+            fileType.longestLineLength = longestLineLength;
+            fileType.longestLineNumber = lineNumber;
+            fileType.longestLineFile = filepath;
+          }
         }
       }
     });
@@ -53,10 +64,12 @@ module.exports = function(grunt) {
         if (options.details) {
           grunt.log.writeln('');
         }
-        grunt.log.writeln('Number of ' + extension + ' files: ' + fileTypes[extension].count);
+        var fileType = fileTypes[extension];
+        grunt.log.writeln('Number of ' + extension + ' files: ' + fileType.count);
         if (options.details) {
-          grunt.log.writeln('Number of lines in ' + extension + ' files: ' + fileTypes[extension].lineCount);
-          grunt.log.writeln('Longest line in ' + extension + ' files: ' + fileTypes[extension].longestLine);
+          grunt.log.writeln('Number of lines in ' + extension + ' files: ' + fileType.lineCount);
+          grunt.log.writeln('Longest line in ' + extension + ' files: ' + fileType.longestLineLength);
+          grunt.log.writeln('     in ' + fileType.longestLineFile + ' l:' + fileType.longestLineNumber);
         }
       }
     }
