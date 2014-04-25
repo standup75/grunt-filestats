@@ -58,3 +58,35 @@ filestats: {
 ### Demo
 
 Just try `grunt filestats` in the root directory of this plugin
+
+output:
+
+```
+Running "filestats:javascript" (filestats) task
+Number of files scanned: 2
+Number of directories scanned: 0
+
+Number of .js files: 2
+Number of lines in .js files: 3
+Longest line in .js files: 17
+
+Running "filestats:all" (filestats) task
+Number of files scanned: 3
+Number of directories scanned: 2
+
+Number of .js files: 2
+Number of lines in .js files: 3
+Longest line in .js files: 17
+
+Number of .txt files: 1
+Number of lines in .txt files: 1
+Longest line in .txt files: 10
+
+Running "filestats:nodetails" (filestats) task
+Number of files scanned: 3
+Number of directories scanned: 2
+Number of .js files: 2
+Number of .txt files: 1
+
+Done, without errors.
+```
